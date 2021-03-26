@@ -11,6 +11,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
+import UsersContainer from "./components/UsersContainer";
 
 function App() {
   const [menuShow, setMenuShow] = useState(false);
@@ -31,8 +32,8 @@ function App() {
         <NavMenu show={menuShow} onShow={onMenuShow} onHide={onMenuHide}>
           <NavLink to="/1-dialog">1. Dialog window</NavLink>
           <NavLink to="/2-snackbar">2. Snackbars</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-          <Link onClick={toggleSHowMenu}>Close</Link>
+          <NavLink to="/4-users">4. UsersContainer</NavLink>
+          <Link onClick={toggleSHowMenu} to="#">Close</Link>
         </NavMenu>
         <div>
           <Button handleClick={toggleSHowMenu}>Show Menu</Button>
@@ -47,6 +48,11 @@ function App() {
           <Route path="/2-snackbar">
             <Section title="2. Snackbar">
               <SnackbarExample />
+            </Section>
+          </Route>
+          <Route path="/4-users">
+            <Section title="4. UsersContainer">
+              <UsersContainer></UsersContainer>
             </Section>
           </Route>
           <Route path="/"></Route>
