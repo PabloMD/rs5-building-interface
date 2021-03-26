@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Dialog from "./Dialog";
+import Dialog, { DialogTitle } from "../components/Dialog";
+import { Button } from "../components/Layout";
 
-import { Button, DialogTitle } from ".";
+// import Dialog, { Button, DialogTitle } from "./components/Dialog";
 
 function DialogExample() {
   const [show, setShow] = useState(false);

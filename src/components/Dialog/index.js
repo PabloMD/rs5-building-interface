@@ -1,3 +1,2 @@
-export { default as DialogExample } from './DialogExample';
-export { default as Button } from './Button';
+export { default } from './Dialog';
 export { default as DialogTitle } from './DialogTitle';

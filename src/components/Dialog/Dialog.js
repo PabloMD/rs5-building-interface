@@ -1,10 +1,12 @@
-import { Button } from ".";
+import React from "react";
+import { Button } from "../Layout";
 
 import "./Dialog.scss";
 
 function Dialog({ children, show, handleConfirm, handleAbort }) {
   return (
-    <div style={{ display: show ? "block" : "none" }}>
+    <React.Fragment>
+      { show &&
       <div className="modalBack">
         <div className="modalWrapper">
           {children}
@@ -13,8 +15,8 @@ function Dialog({ children, show, handleConfirm, handleAbort }) {
             <Button handleClick={handleAbort}>Abort</Button>
           </div>
         </div>
-      </div>
-    </div>
+      </div> }
+    </React.Fragment>
   );
 }
 

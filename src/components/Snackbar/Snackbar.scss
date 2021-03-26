@@ -1,0 +1,17 @@
+ .snackbarContent{
+    position: fixed;
+    border-radius: 5px;
+    border: solid 1px #000;
+    background-color: #fff;
+    font-weight: 500;
+    padding: 10px 20px;
+    margin: 5px;
+    
+    color: #fff;
+    &.success{
+        background-color: #4caf50;
+    }
+    &.error{
+        background-color: #f44336;
+    }
+}
