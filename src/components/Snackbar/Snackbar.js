@@ -6,7 +6,7 @@ function Snackbar({ type = "success", show, timeout = 5000, onClose, position = 
 
   useEffect(() => {
     let timeoutId;
-    console.log("useEffect ", timeoutId);
+
     if (show) {
       timeoutId = setTimeout(() => {
         onClose && onClose();
