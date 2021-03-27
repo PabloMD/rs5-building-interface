@@ -11,10 +11,12 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import UsersContainer from "./components/UsersContainer";
+import UsersContainer, { UserProfile } from "./components/UsersContainer";
 
 function App() {
   const [menuShow, setMenuShow] = useState(false);
+  const [user, setUser] = useState();
+
   const toggleSHowMenu = () => {
     setMenuShow((s) => !s);
   };
@@ -32,8 +34,11 @@ function App() {
         <NavMenu show={menuShow} onShow={onMenuShow} onHide={onMenuHide}>
           <NavLink to="/1-dialog">1. Dialog window</NavLink>
           <NavLink to="/2-snackbar">2. Snackbars</NavLink>
-          <NavLink to="/4-users">4. UsersContainer</NavLink>
-          <Link onClick={toggleSHowMenu} to="#">Close</Link>
+          <NavLink to="/users">4. Users Container</NavLink>
+          <NavLink to="/user-profile">5. User profile</NavLink>
+          <Link onClick={toggleSHowMenu} to="#">
+            Close
+          </Link>
         </NavMenu>
         <div>
           <Button handleClick={toggleSHowMenu}>Show Menu</Button>
@@ -50,9 +55,14 @@ function App() {
               <SnackbarExample />
             </Section>
           </Route>
-          <Route path="/4-users">
+          <Route path="/users">
             <Section title="4. UsersContainer">
-              <UsersContainer></UsersContainer>
+              <UsersContainer selectedUser={user} setUser={(userData) => setUser(userData)} />
+            </Section>
+          </Route>
+          <Route path="/user-profile">
+            <Section title="5. User Profile">
+              <UserProfile user={user} />
             </Section>
           </Route>
           <Route path="/"></Route>

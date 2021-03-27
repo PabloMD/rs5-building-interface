@@ -1,0 +1,17 @@
+.userEntry{
+    button{
+        padding: 5px 20px;
+        cursor: pointer;
+        background: none;
+        border: 0 none;
+        margin: 3px 0;
+        border: solid 1px #fff;
+        &:focus{
+            outline: none;
+        }
+        &.active{
+            border: solid 1px #4caf50;
+            border-radius: 4px;
+        }
+    }
+}

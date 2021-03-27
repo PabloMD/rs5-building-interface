@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+
 import { User, UsersList, UserSearch } from ".";
 
-function UsersContainer() {
+function UsersContainer({ setUser, selectedUser }) {
   const [usersList, setUsersList] = useState([]);
   const [users, setUsers] = useState([]);
 
@@ -17,18 +18,21 @@ function UsersContainer() {
     setUsers(usersList);
   }, [usersList]);
 
-  const handleSearch = (filteredUsers) => {
-      setUsers(filteredUsers);
-  };
+  const handleSearch = useCallback((filteredUsers) => {
+    setUsers(filteredUsers);
+  }, []);
 
   return (
     <div>
-      <UserSearch users={usersList} onSearch={handleSearch}>
-
-      </UserSearch>
+      <UserSearch users={usersList} onSearch={handleSearch}></UserSearch>
       <UsersList>
         {users.map((user) => (
-          <User key={user.uid} data={user}></User>
+          <User
+            key={user.uid}
+            data={user}
+            selectedUser={selectedUser}
+            setUser={setUser}
+          ></User>
         ))}
       </UsersList>
     </div>
